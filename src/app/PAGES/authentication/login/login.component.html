@@ -1,0 +1,23 @@
+<div class="relative flex items-center justify-center min-h-screen overflow-hidden bg-midnight px-4">
+  <div class="absolute inset-0 bg-linear-to-br from-primary/40 via-midnight to-violet/40"></div>
+
+  <div class="relative bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <input-text formControlName="phone" [type]="'number'" [label]="'Phone'" [prefix]="'+'" [placeholder]="'62'"
+          [control]="form.get('phone')" (valueChange)="onPhoneChange($event)"></input-text>
+      </div>
+      <div class="mb-6">
+        <input-text formControlName="password" [type]="'password'" [placeholder]="'********'" [label]="'Password'"
+          [control]="form.get('password')"></input-text>
+      </div>
+
+
+      <app-button [variant]="'violet'" [size]="'lg'" class="w-full justify-center"
+        [type]="'submit'" [disabled]="form.invalid">
+        Login
+      </app-button>
+    </form>
+  </div>
+</div>

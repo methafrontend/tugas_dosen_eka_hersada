@@ -1,0 +1,25 @@
+image: node:24 # Gunakan image Node.js versi 22 untuk menjalankan pipeline
+
+definitions:
+  caches:
+    sonar: ~/.sonar
+    node: ~/.npm # Cache untuk dependencies Node.js
+
+  steps:
+    - step: &build-angular
+        name: Build Angular App
+        image: node:24
+        caches:
+          - node
+        script:
+          - npm install --legacy-peer-deps # Install dependencies dari package.json di root
+          - npm run build
+
+clone:
+  depth: full # Clone seluruh history git (diperlukan SonarQube)
+
+pipelines:
+  branches:
+    staging:
+      # - step: *sonar-analysis
+      - step: *build-angular

@@ -1,0 +1,94 @@
+@if (hasError('required')) {
+<small class="text-[#EB5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    {{label}} diperlukan
+  </div>
+</small>
+}
+
+@if (hasError('invalidLinkPattern')) {
+<small class="text-[#eb5757]">
+  Format {{label}} salah!, Contoh: https://gmeet.google.com/
+</small>
+}
+
+@if (hasError('invalidEmailPattern')) {
+<small class="text-[#eb5757]">
+  Format {{label}} salah!
+</small>
+}
+
+
+@if (hasError('dateRange')) {
+<small class="text-[#eb5757]">
+  {{control?.errors['dateRange']}}
+</small>
+}
+
+@if (hasError('totalPriceExceed')) {
+<small class="text-[#eb5757]">
+  Total tidak boleh lebih besar dari Total Negosiasi
+</small>
+}
+
+@if (hasError('minlength')) {
+<small class="text-[#eb5757]">
+  {{label}} Minimal {{ control?.errors?.minlength?.requiredLength }}
+  Error
+</small>
+}
+
+@if (hasError('maxlength')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    {{label}} Maksimal {{ control?.errors?.maxlength?.requiredLength }}
+    Karakter
+  </div>
+</small>
+}
+
+@if (hasError('min')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    {{label}} Minimal {{ control?.errors?.min?.min }}
+  </div>
+</small>
+}
+
+@if (hasError('max')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    {{label}} Maksimal {{ control?.errors?.max?.max }}
+  </div>
+</small>
+}
+
+@if (hasError('mismatch')) {
+<small class="text-[#eb5757]">
+  tidak sama
+</small>
+}
+
+@if (hasError('passwordSameAsCurrent')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    Password baru tidak boleh sama dengan password lama
+  </div>
+</small>
+}
+
+@if (hasError('passwordMismatch')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    Password baru dan konfirmasi password baru tidak sama
+  </div>
+</small>
+}
+
+@if (hasError('strongPassword')) {
+<small class="text-[#eb5757]">
+  <div class="w-full my-2 bg-red-100 rounded-[4px] px-[12px] py-[4px]">
+    Password harus mengandung minimal 8 karakter, huruf besar, huruf kecil, angka, dan karakter spesial.
+  </div>
+</small>
+}

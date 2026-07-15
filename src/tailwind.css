@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+/* Palet warna tema (diambil dari halaman 404) — pakai sebagai bg-*, text-*, border-* */
+@theme {
+  --color-primary: #206EE1;      /* biru utama */
+  --color-violet: #4C2DE1;       /* ungu tua */
+  --color-sky: #6FA8FF;          /* biru muda (gradient) */
+  --color-lavender: #B18CFF;     /* ungu muda (gradient) */
+  --color-blush: #FF8CE0;        /* pink (gradient) */
+  --color-midnight: #0B1220;     /* navy gelap (background) */
+}
+/* @import "~@ng-select/ng-select/themes/default.theme.css"; */
+/* @import "./theme/components.scss";
+@import "./theme/fontstyle.scss";
+@import "./theme/typography.scss";
+@import "./theme/variables.scss"; */
+
+
+
+

@@ -1,0 +1,24 @@
+<div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-midnight text-center px-4">
+  <div class="absolute inset-0 bg-linear-to-br from-primary/40 via-midnight to-violet/40"></div>
+  <div class="relative w-full max-w-lg">
+    <div class="animate-float mx-auto mb-2 flex items-center justify-center w-24 h-24 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
+      <i class="pi pi-compass text-5xl! text-white"></i>
+    </div>
+
+    <h1 class="text-[7rem] leading-none font-black bg-linear-to-r from-sky via-lavender to-blush bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(111,168,255,0.35)]">
+      404
+    </h1>
+
+    <p class="text-2xl font-semibold mt-2 text-white">Lost your way…</p>
+    <p class="text-white/60 mt-2 text-lg! max-w-lg mx-auto">The page you are looking for could not be found, has been moved, or never existed.</p>
+
+    <app-button
+      [variant]="'aurora'"
+      class="mt-8 inline-block hover:scale-105 transition-all duration-300"
+      (onClick)="goBack()"
+    >
+      <i class="pi pi-arrow-left mr-2"></i>
+      {{ isLoggedIn ? 'Back to Dashboard' : 'Back to Login' }}
+    </app-button>
+  </div>
+</div>

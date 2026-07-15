@@ -1,0 +1,20 @@
+<div class="fixed inset-0 bgs z-50 flex items-center justify-center">
+  <div class="absolute transition-all duration-100 ease-in-out transform hover:scale-110"
+    style="padding: 50px; box-sizing: content-box;"
+    [ngStyle]="{ top: boxPosition.top, left: boxPosition.left, position: 'absolute' }" (mouseenter)="onMouseEnterBox()">
+
+    <div (click)="onLogout()"
+      class=" w-40 h-20 bg-black text-white flex items-center text-center justify-center cursor-pointer rounded-xl  shadow-lg">
+      Tangkap
+    </div>
+  </div>
+
+  <div class="absolute top-5 right-5 text-white text-xl space-y-2 text-right bg-amber-900 p-2 rounded-2xl">
+    <div>Waktu: {{ timer }} detik</div>
+    <div>Skor: {{ score }}</div>
+  </div>
+
+  <div *ngIf="gameEnded" class="absolute bottom-10 text-white text-2xl font-bold">
+    Permainan Selesai! Skor akhir: {{ score }}
+  </div>
+</div>
