@@ -5,13 +5,13 @@ import { ButtonComponent } from '@shared/ui/button/button.component';
 import { InputTextComponent } from '@shared/ui/input-text/input-text.component';
 import { emailPatternValidator, phonePatternValidator } from '@shared/utils/validator_pattern';
 import { PopupComponent } from '@shared/ui/popup/popup.component';
-import { ContactListComponent } from './contact-list.component';
-import { Contact } from './contact.model';
-import { ContactService } from './contact.service';
+import { ContactListComponent } from '../contact-list.component';
+import { Contact } from '../../../core/models/contact/contact.model';
+import { ContactService } from '../../../API/contact/contact.service';
 
 @Component({
   selector: 'app-contact-list-page',
-  templateUrl: './contact-list-page.component.html',
+  templateUrl: './list.component.html',
   imports: [ReactiveFormsModule, ButtonComponent, InputTextComponent, ContactListComponent, PopupComponent],
 })
 export class ContactListPageComponent {
@@ -33,11 +33,11 @@ export class ContactListPageComponent {
     this.contacts = this.contactService.getContacts();
   }
 
-  toggleAddForm(): void {
+  toggleAddForm() {
     this.showAddForm = !this.showAddForm;
   }
 
-  onSubmit(): void {
+  onSubmit() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -53,7 +53,7 @@ export class ContactListPageComponent {
     this.refresh();
   }
 
-  onDelete(id: string): void {
+  onDelete(id: string) {
     this.helper.confirmationAlert({
       type: 'delete',
       title: 'Hapus Kontak',
@@ -70,12 +70,12 @@ export class ContactListPageComponent {
     });
   }
 
-  onToggleFavorite(id: string): void {
+  onToggleFavorite(id: string) {
     this.contactService.toggleFavorite(id);
     this.refresh();
   }
 
-  private refresh(): void {
+  private refresh() {
     this.contacts = this.contactService.getContacts();
   }
 }

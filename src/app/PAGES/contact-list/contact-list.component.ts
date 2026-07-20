@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContactCardComponent } from '../../shared/widgets/contact-card/contact-card.component';
-import { Contact } from './contact.model';
+import { Contact } from '../../core/models/contact/contact.model';
 
 @Component({
   selector: 'app-contact-list',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contact } from './contact.model';
+import { Contact } from '../../core/models/contact/contact.model';
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
@@ -22,11 +22,11 @@ export class ContactService {
     });
   }
 
-  deleteContact(id: string): void {
+  deleteContact(id: string) {
     this.contacts = this.contacts.filter(c => c.id !== id);
   }
 
-  toggleFavorite(id: string): void {
+  toggleFavorite(id: string) {
     const contact = this.contacts.find(c => c.id === id);
     if (contact) contact.isFavorite = !contact.isFavorite;
   }
