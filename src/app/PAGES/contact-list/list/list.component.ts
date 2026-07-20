@@ -66,7 +66,7 @@ export class ContactListPageComponent {
         this.contactService.deleteContact(id);
         this.refresh();
         this.helper.dismissLoading();
-      }, 500);
+      }, 200);
     });
   }
 
