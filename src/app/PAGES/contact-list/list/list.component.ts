@@ -63,13 +63,13 @@ export class ContactListPageComponent {
       button: 'Hapus',
     }).then(ok => {
       if (!ok) return;
-      this.helper.showLoading('Menghapus kontak...');
       setTimeout(() => {
         this.contactService.deleteContact(id);
         this.refresh();
         this.helper.dismissLoading();
         this.cdr.detectChanges();
       }, 200);
+    this.helper.showPopup('success', 'Berhasil', 'Kontak berhasil dihapus', true);
     });
   }
 
