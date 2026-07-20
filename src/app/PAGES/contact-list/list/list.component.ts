@@ -52,6 +52,7 @@ export class ContactListPageComponent {
     this.form.reset();
     this.showAddForm = false;
     this.refresh();
+    this.helper.showPopup('success', 'Berhasil', 'Kontak berhasil ditambahkan', true);
   }
 
   onDelete(id: string) {
