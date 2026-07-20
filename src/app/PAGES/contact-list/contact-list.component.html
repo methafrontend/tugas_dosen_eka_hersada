@@ -1,7 +1,9 @@
 @if (contacts.length === 0) {
-  <p class="text-gray-500">Belum ada kontak</p>
+<div class="flex-1 flex items-center justify-center h-full">
+    <p class="text-gray-500">Belum ada kontak</p>
+</div>
 } @else {
-  @for (c of contacts; track c.id) {
-    <app-contact-card [contact]="c" (delete)="delete.emit($event)" (toggleFavorite)="toggleFavorite.emit($event)" />
+  @for (item of contacts; track item.id) {
+    <app-contact-card [contact]="item" (delete)="delete.emit($event)" (toggleFavorite)="toggleFavorite.emit($event)" />
   }
 }
