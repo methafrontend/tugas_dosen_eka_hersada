@@ -18,6 +18,12 @@
 </small>
 }
 
+@if (hasError('invalidPhonePattern')) {
+<small class="text-[#eb5757]">
+  {{label}} harus berupa angka
+</small>
+}
+
 
 @if (hasError('dateRange')) {
 <small class="text-[#eb5757]">

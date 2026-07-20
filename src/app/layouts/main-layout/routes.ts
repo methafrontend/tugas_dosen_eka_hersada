@@ -19,8 +19,8 @@ const routes: Routes = [
     loadComponent: () => import('../../PAGES/settings/settings.component').then(m => m.SettingsComponent)
   },
   {
-    path: 'contact-list',
-    loadComponent: () => import('../../PAGES/contact-list/contact-list.component').then(m => m.ContactListComponent)
+    path: 'daftar-kontak',
+    loadComponent: () => import('../../PAGES/contact-list/contact-list-page.component').then(m => m.ContactListPageComponent)
   }
 
 ];
