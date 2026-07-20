@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { MainLayoutRoutes } from './layouts/main-layout/routes';
 
 export const routes: Routes = [
     {
@@ -17,23 +18,10 @@ export const routes: Routes = [
 
 
     {
-        path: '',
+        path: 'admin-panel',
         canActivate: [authGuard],
         component: MainLayoutComponent,
-        children: [
-            {
-                path: 'dashboard',
-                loadComponent: () => import('./PAGES/dashboard/dashboard.component').then(m => m.DashboardComponent)
-            },
-            {
-                path: 'users',
-                loadComponent: () => import('./PAGES/users/users.component').then(m => m.UsersComponent)
-            },
-            {
-                path: 'settings',
-                loadComponent: () => import('./PAGES/settings/settings.component').then(m => m.SettingsComponent)
-            }
-        ],
+        children: MainLayoutRoutes
     },
     {
         path: '**',

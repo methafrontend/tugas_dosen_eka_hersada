@@ -17,9 +17,9 @@ interface MenuItem {
 export class SidebarComponent {
 
   menu: MenuItem[] = [
-    { label: 'Dashboard', icon: 'pi pi-home', route: '/dashboard' },
-    { label: 'Users', icon: 'pi pi-users', route: '/users' },
-    { label: 'Settings', icon: 'pi pi-cog', route: '/settings' }
+    { label: 'Dashboard', icon: 'pi pi-home', route: '/admin-panel/dashboard' },
+    { label: 'Users', icon: 'pi pi-users', route: '/admin-panel/users' },
+    { label: 'Settings', icon: 'pi pi-cog', route: '/admin-panel/settings' }
   ];
 
   constructor(private auth: AuthService) { }

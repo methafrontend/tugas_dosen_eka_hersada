@@ -23,7 +23,7 @@ export class Page404Component implements OnInit {
   }
 
   goBack() {
-    this.router.navigateByUrl(this.isLoggedIn ? '/dashboard' : '/login');
+    this.router.navigateByUrl(this.isLoggedIn ? '/admin-panel/dashboard' : '/login');
   }
 
 }

@@ -78,7 +78,7 @@ export class LoginComponent {
 
       setTimeout(() => {
         this.helper.dismissLoading();
-        this.helper.routerLink('/dashboard');
+        this.helper.routerLink('/admin-panel/dashboard');
       }, 2000);
     }).catch((err) => {
       this.helper.dismissLoading();
