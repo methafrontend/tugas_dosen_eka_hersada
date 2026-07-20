@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
         [type]="type"
         [disabled]="isDisabled()"
         [ngClass]="[class, variantClass, sizeClass]"
-        class="rounded-xl! flex items-center text-sm! px-6!"
+        class="rounded-xl! flex items-center justify-center text-sm!"
         (click)="handleClick()"
       >
         @if (loadings() && loading) {
@@ -29,7 +29,7 @@ export class ButtonComponent implements OnInit {
   internalDisabled = signal(false);
   isDisabled = computed(() => this.internalDisabled() || this.disabled());
   @Input() variant: 'primary' | 'outline-primary' | 'success' | 'warning' | 'secondary' | 'danger' | 'outline' | 'softblue' | 'gray' | 'white' | 'ghost' | 'aurora' | 'midnight' | 'violet' = 'primary';
-  @Input() size: 'sm' | 'lg' | 'xl' = 'sm';
+  @Input() size: 'sm' | 'lg' | 'xl' | 'icon' = 'sm';
   @Input() type: 'button' | 'submit' = 'button';
   @Input() class = '';
   @Input() loading = false;
@@ -99,11 +99,13 @@ export class ButtonComponent implements OnInit {
   get sizeClass() {
     switch (this.size) {
       case 'lg':
-        return 'h-14!';
+        return 'h-14! px-6!';
       case 'xl':
-        return 'h-16!';
+        return 'h-16! px-6!';
+      case 'icon':
+        return 'h-6! w-6! p-0!';
       default:
-        return 'h-12!';
+        return 'h-12! px-6!';
     }
   }
 

@@ -1,5 +1,5 @@
 <div [appHighlightFavorite]="contact.isFavorite"
-  class="flex items-center justify-between bg-gray-100 rounded-full px-6 py-3 mb-3">
+  class="flex items-center justify-between bg-gray-100 rounded-lg px-6 py-3 mb-3">
   <div>
     <p class="font-semibold">{{ contact.nama | uppercase }}</p>
     <p class="text-sm text-gray-500">{{ contact.email }} · {{ contact.phone | formatPhone }} · {{ contact.createdAt | date:'dd/MM/yyyy' }}</p>
@@ -10,8 +10,8 @@
       [ngClass]="contact.isFavorite ? 'pi-star-fill' : 'pi-star'"
       (click)="onToggleFavorite(contact.id)"></i>
 
-    <app-button [variant]="'danger'" [size]="'sm'" (onClick)="onDelete(contact.id)">
-      <i class="pi pi-times"></i>
+    <app-button [variant]="'danger'" [size]="'icon'" class="rounded-full!" (onClick)="onDelete(contact.id)">
+      <i class="pi pi-times text-xs!"></i>
     </app-button>
   </div>
 </div>
