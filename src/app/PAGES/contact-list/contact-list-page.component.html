@@ -4,8 +4,8 @@
     <app-button [variant]="'primary'" (onClick)="toggleAddForm()">Tambah</app-button>
   </div>
 
-  @if (showAddForm) {
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="bg-white rounded-2xl p-6 mb-6 shadow">
+  <app-popup [(visible)]="showAddForm" [header]="'Tambah Kontak'">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="mb-4">
         <input-text formControlName="nama" [label]="'Nama'" [placeholder]="'fill name'" [control]="form.get('nama')"></input-text>
       </div>
@@ -18,7 +18,7 @@
 
       <app-button [variant]="'primary'" [type]="'submit'" [disabled]="form.invalid">Simpan</app-button>
     </form>
-  }
+  </app-popup>
 
   <app-contact-list [contacts]="contacts" (delete)="onDelete($event)" (toggleFavorite)="onToggleFavorite($event)" />
 </div>

@@ -4,6 +4,7 @@ import { HelperService } from '@core/services/helper.service';
 import { ButtonComponent } from '@shared/ui/button/button.component';
 import { InputTextComponent } from '@shared/ui/input-text/input-text.component';
 import { emailPatternValidator, phonePatternValidator } from '@shared/utils/validator_pattern';
+import { PopupComponent } from '@shared/ui/popup/popup.component';
 import { ContactListComponent } from './contact-list.component';
 import { Contact } from './contact.model';
 import { ContactService } from './contact.service';
@@ -11,7 +12,7 @@ import { ContactService } from './contact.service';
 @Component({
   selector: 'app-contact-list-page',
   templateUrl: './contact-list-page.component.html',
-  imports: [ReactiveFormsModule, ButtonComponent, InputTextComponent, ContactListComponent],
+  imports: [ReactiveFormsModule, ButtonComponent, InputTextComponent, ContactListComponent, PopupComponent],
 })
 export class ContactListPageComponent {
 
@@ -60,8 +61,12 @@ export class ContactListPageComponent {
       button: 'Hapus',
     }).then(ok => {
       if (!ok) return;
-      this.contactService.deleteContact(id);
-      this.refresh();
+      this.helper.showLoading('Menghapus kontak...');
+      setTimeout(() => {
+        this.contactService.deleteContact(id);
+        this.refresh();
+        this.helper.dismissLoading();
+      }, 500);
     });
   }
 

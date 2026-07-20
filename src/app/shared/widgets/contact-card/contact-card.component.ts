@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from '@shared/ui/button/button.component';
 import { FormatPhonePipe } from '@shared/pipes/format-phone.pipe';
 import { HighlightFavoriteDirective } from '@shared/directives/highlight-favorite.directive';
-import { Contact } from './contact.model';
+import { Contact } from '../../../PAGES/contact-list/contact.model';
 
 @Component({
   selector: 'app-contact-card',

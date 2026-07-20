@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ContactCardComponent } from './contact-card.component';
+import { ContactCardComponent } from '../../shared/widgets/contact-card/contact-card.component';
 import { Contact } from './contact.model';
 
 @Component({
