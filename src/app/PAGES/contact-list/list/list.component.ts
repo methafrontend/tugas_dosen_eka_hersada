@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HelperService } from '@core/services/helper.service';
 import { ButtonComponent } from '@shared/ui/button/button.component';
@@ -24,6 +24,7 @@ export class ContactListPageComponent {
     private fb: FormBuilder,
     private contactService: ContactService,
     private helper: HelperService,
+    private cdr: ChangeDetectorRef,
   ) {
     this.form = this.fb.group({
       nama: ['', [Validators.required, Validators.minLength(3)]],
@@ -66,6 +67,7 @@ export class ContactListPageComponent {
         this.contactService.deleteContact(id);
         this.refresh();
         this.helper.dismissLoading();
+        this.cdr.detectChanges();
       }, 200);
     });
   }

@@ -1,24 +1,25 @@
-<div class="p-6">
-  <div class="flex items-center justify-between mb-4">
-    <h2 class="text-xl font-semibold text-white">Daftar Kontak</h2>
-    <app-button [variant]="'primary'" (onClick)="toggleAddForm()">Tambah</app-button>
-  </div>
-
-  <app-popup [(visible)]="showAddForm" [header]="'Tambah Kontak'">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="mb-4">
-        <input-text formControlName="nama" [label]="'Nama'" [placeholder]="'fill name'" [control]="form.get('nama')"></input-text>
-      </div>
-      <div class="mb-4">
-        <input-text formControlName="email" [type]="'email'" [placeholder]="'fill email'" [label]="'Email'" [control]="form.get('email')"></input-text>
-      </div>
-      <div class="mb-4">
-        <input-text formControlName="phone" [label]="'No HP'" [placeholder]="'fill phone number'" [control]="form.get('phone')"></input-text>
-      </div>
-
-      <app-button [variant]="'primary'" [type]="'submit'" [disabled]="form.invalid">Simpan</app-button>
-    </form>
-  </app-popup>
-
-  <app-contact-list [contacts]="contacts" (delete)="onDelete($event)" (toggleFavorite)="onToggleFavorite($event)" />
+<div class="flex items-center justify-between mb-4">
+  <h2 class="text-xl font-semibold text-white">Daftar Kontak</h2>
+  <app-button [variant]="'primary'" (onClick)="toggleAddForm()">Tambah</app-button>
 </div>
+
+<app-popup [(visible)]="showAddForm" [header]="'Tambah Kontak'">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <input-text formControlName="nama" [label]="'Nama'" [placeholder]="'fill name'"
+        [control]="form.get('nama')"></input-text>
+    </div>
+    <div class="mb-4">
+      <input-text formControlName="email" [type]="'email'" [placeholder]="'fill email'" [label]="'Email'"
+        [control]="form.get('email')"></input-text>
+    </div>
+    <div class="mb-4">
+      <input-text formControlName="phone" [label]="'No HP'" [placeholder]="'fill phone number'"
+        [control]="form.get('phone')"></input-text>
+    </div>
+
+    <app-button [variant]="'primary'" [type]="'submit'" [disabled]="form.invalid">Simpan</app-button>
+  </form>
+</app-popup>
+
+<app-contact-list [contacts]="contacts" (delete)="onDelete($event)" (toggleFavorite)="onToggleFavorite($event)" />
