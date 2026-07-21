@@ -41,7 +41,7 @@ export class ContactListComponent {
     this.helper.showPopup('success', 'Berhasil', 'Kontak berhasil ditambahkan', true);
   }
 
-  onDelete(id: string): void {
+  onDelete(id: string) {
     this.helper.confirmationAlert({
       type: 'delete',
       title: 'Hapus Kontak',
@@ -58,7 +58,7 @@ export class ContactListComponent {
     });
   }
 
-  onToggleFavorite(id: string): void {
+  onToggleFavorite(id: string) {
     this.contactService.toggleFavorite(id);
   }
 }
