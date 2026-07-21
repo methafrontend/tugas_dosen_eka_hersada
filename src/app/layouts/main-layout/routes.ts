@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'daftar-kontak',
-    loadComponent: () => import('../../PAGES/contact-list/list/list.component').then(m => m.ContactListPageComponent)
+    loadComponent: () => import('../../PAGES/contact-list/contact-list.component').then(m => m.ContactListComponent)
   }
 
 ];

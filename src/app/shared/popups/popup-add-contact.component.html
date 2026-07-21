@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-4">
+    <input-text formControlName="nama" [label]="'Nama'" [placeholder]="'fill name'"
+      [control]="form.get('nama')"></input-text>
+  </div>
+  <div class="mb-4">
+    <input-text formControlName="email" [type]="'email'" [placeholder]="'fill email'" [label]="'Email'"
+      [control]="form.get('email')"></input-text>
+  </div>
+  <div class="mb-4">
+    <input-text formControlName="phone" [label]="'No HP'" [placeholder]="'fill phone number'"
+      [control]="form.get('phone')"></input-text>
+  </div>
+
+  <div class="flex gap-2 justify-end">
+    <app-button [variant]="'secondary'" [type]="'button'" (onClick)="onCancel()">Batal</app-button>
+    <app-button [variant]="'primary'" [type]="'submit'" [disabled]="form.invalid">Simpan</app-button>
+  </div>
+</form>

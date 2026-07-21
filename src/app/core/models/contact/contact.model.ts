@@ -1,4 +1,6 @@
-export interface Contact {
+import { entityStoreFactory } from "@core/config/entity-store";
+
+export interface Contact_m {
   id: string;
   nama: string;
   email: string;
@@ -6,3 +8,5 @@ export interface Contact {
   isFavorite: boolean;
   createdAt: string;
 }
+
+export const Entity_Contact = entityStoreFactory<Contact_m>();

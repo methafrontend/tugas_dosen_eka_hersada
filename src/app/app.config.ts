@@ -14,6 +14,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import { AuthService } from '@api/auth/auth.service';
 import { providePrimeNG } from 'primeng/config';
+import { DialogService } from 'primeng/dynamicdialog';
 import Aura from '@primeuix/themes/aura';
 
 export function appInitFactoryFromApi(auth: AuthService) {
@@ -27,6 +28,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptors([jwtInterceptor, errorInterceptor])),
     provideAppInitializer(() => appInitFactoryFromApi(inject(AuthService))),
+    DialogService,
 
     providePrimeNG({
       theme: {

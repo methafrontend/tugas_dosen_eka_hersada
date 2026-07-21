@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Contact } from '../../core/models/contact/contact.model';
+import { Contact_m, Entity_Contact } from '../../core/models/contact/contact.model';
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
 
-  private contacts: Contact[] = [
-    { id: crypto.randomUUID(), nama: 'Budi Santoso', email: 'budi@example.com', phone: 81234567890, isFavorite: true, createdAt: new Date().toISOString() },
-    { id: crypto.randomUUID(), nama: 'Siti Aminah', email: 'siti@example.com', phone: 82198765432, isFavorite: false, createdAt: new Date().toISOString() },
-  ];
+  contacts = Entity_Contact.all;
 
-  getContacts(): Contact[] {
-    return this.contacts;
+  constructor() {
+    if (Entity_Contact.count() === 0) {
+      Entity_Contact.setAll([
+        { id: crypto.randomUUID(), nama: 'Budi Santoso', email: 'budi@example.com', phone: 81234567890, isFavorite: true, createdAt: new Date().toISOString() },
+        { id: crypto.randomUUID(), nama: 'Siti Aminah', email: 'siti@example.com', phone: 82198765432, isFavorite: false, createdAt: new Date().toISOString() },
+      ]);
+    }
   }
 
-  addContact(data: Pick<Contact, 'nama' | 'email' | 'phone'>): void {
-    this.contacts.push({
+  addContact(data: Pick<Contact_m, 'nama' | 'email' | 'phone'>): void {
+    Entity_Contact.add({
       id: crypto.randomUUID(),
       ...data,
       isFavorite: false,
@@ -22,12 +24,12 @@ export class ContactService {
     });
   }
 
-  deleteContact(id: string) {
-    this.contacts = this.contacts.filter(c => c.id !== id);
+  deleteContact(id: string): void {
+    Entity_Contact.remove(id);
   }
 
-  toggleFavorite(id: string) {
-    const contact = this.contacts.find(c => c.id === id);
-    if (contact) contact.isFavorite = !contact.isFavorite;
+  toggleFavorite(id: string): void {
+    const current = Entity_Contact.getByKey(id)();
+    if (current) Entity_Contact.update(id, { isFavorite: !current.isFavorite });
   }
 }

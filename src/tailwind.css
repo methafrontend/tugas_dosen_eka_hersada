@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
-/* Palet warna tema (diambil dari halaman 404) — pakai sebagai bg-*, text-*, border-* */
 @theme {
   --color-primary: #206EE1;      /* biru utama */
   --color-violet: #4C2DE1;       /* ungu tua */

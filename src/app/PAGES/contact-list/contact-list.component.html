@@ -1,9 +1,14 @@
-@if (contacts.length === 0) {
+<div class="flex items-center justify-between mb-4">
+  <h2 class="text-xl font-semibold text-white">Daftar Kontak</h2>
+  <app-button [variant]="'primary'" (onClick)="openAddContact()">Tambah</app-button>
+</div>
+
+@if (contacts().length === 0) {
 <div class="flex-1 flex items-center justify-center h-full">
     <p class="text-gray-500">Belum ada kontak</p>
 </div>
 } @else {
-  @for (item of contacts; track item.id) {
-    <app-contact-card [contact]="item" (delete)="delete.emit($event)" (toggleFavorite)="toggleFavorite.emit($event)" />
+  @for (item of contacts(); track item.id) {
+    <app-contact-card [contact]="item" (delete)="onDelete($event)" (toggleFavorite)="onToggleFavorite($event)" />
   }
 }

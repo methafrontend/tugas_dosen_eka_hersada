@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from '@shared/ui/button/button.component';
 import { FormatPhonePipe } from '@shared/pipes/format-phone.pipe';
 import { HighlightFavoriteDirective } from '@shared/directives/highlight-favorite.directive';
-import { Contact } from '../../../core/models/contact/contact.model';
+import { Contact_m } from '../../../core/models/contact/contact.model';
 
 @Component({
   selector: 'app-contact-card',
@@ -12,7 +12,7 @@ import { Contact } from '../../../core/models/contact/contact.model';
 })
 export class ContactCardComponent {
 
-  @Input({ required: true }) contact!: Contact;
+  @Input({ required: true }) contact!: Contact_m;
   @Output() delete = new EventEmitter<string>();
   @Output() toggleFavorite = new EventEmitter<string>();
 
